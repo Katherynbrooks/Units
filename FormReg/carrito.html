@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+    
+    <div id="carrito">
+        <h2>Contenido del Carrito</h2>
+        <ul id="lista-carrito"></ul>
+        <p id="total">Total: $0.00</p>
+        <button onclick="sumarAlCarrito()">Sumar al Carrito</button>
+        <button onclick="restarDelCarrito()">Restar del Carrito</button>
+    </div>
+
+    <script>
+        var carrito = [];
+
+        function actualizarCarrito() {
+            var listaCarrito = document.getElementById('lista-carrito');
+            var totalCarrito = document.getElementById('total');
+            listaCarrito.innerHTML = '';
+            
+            var total = 0;
+
+            for (var i = 0; i < carrito.length; i++) {
+                var item = carrito[i];
+                var listItem = document.createElement('li');
+                listItem.textContent = item.titulo + ' - $' + item.precio.toFixed(2);
+                listaCarrito.appendChild(listItem);
+                total += item.precio;
+            }
+
+            totalCarrito.textContent = 'Total: $' + total.toFixed(2);
+        }
+
+        function sumarAlCarrito() {
+            var titulo = "Producto Ejemplo"; // Reemplaza con el título de tu producto
+            var precio = 49.00; // Reemplaza con el precio de tu producto
+
+            // Agrega el artículo al carrito
+            carrito.push({ titulo: titulo, precio: precio });
+            
+            // Actualiza la visualización del carrito
+            actualizarCarrito();
+        }
+
+        function restarDelCarrito() {
+            // Implementa la lógica para eliminar un artículo del carrito
+            // Puedes usar confirmaciones y manejar la eliminación aquí
+
+            // Por ejemplo, para eliminar el último artículo:
+            if (carrito.length > 0) {
+                carrito.pop();
+            }
+
+            // Actualiza la visualización del carrito
+            actualizarCarrito();
+        }
+
+        actualizarCarrito(); // Actualiza la visualización inicial del carrito
+    </script>
+</body>
+</html>
