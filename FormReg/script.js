@@ -59,6 +59,31 @@ function redirectToGoogle() {
 
 ////////////////////////////
 
+const span = document.querySelector(".titulo-item");
+
+const valor = span.innerHTML;
 
 
-    
+///////////////////////////////////////////////////////////////////////////////
+
+
+var contenedor = document.querySelector(".contenedor");
+var iconoMenu = document.querySelector(".Icono-menu");
+
+iconoMenu.addEventListener("click", function() {
+  contenedor.style.zIndex = -1;
+});
+
+////////////////////////////////////////////////////////////////////
+
+function mifuncion() {
+    window.open('carrito.html', '_blank')
+}
+
+
+const miBoton = document.getElementById("miboton").onclick = func;
+
+
+function func() {
+        producto = ("pantaloneta");
+}
